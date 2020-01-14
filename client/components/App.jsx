@@ -1,40 +1,30 @@
-import React, { Component } from 'react';
-import List from './List.jsx';
+import React, { useState } from 'react';
 
-export default class App extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      first: "",
-      last: ""
-    }
-    this.handleChange = this.handleChange.bind(this);
+const App = () => {
+  const [first, setFirst] = useState('first');
+  const [last, setLast] = useState('last')
+  
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    alert(`Submit ${first} ${last}`)
   }
 
-  handleChange(e) {
-    this.setState({
-      [e.target.name]: e.target.value
-    })
-  }
-
-  render() {
-    return (
-      <div>
-        {this.props.first === this.state.first && this.props.last === this.state.last ? (
-          <List />
-        ): (
-          <form>
-            <label>
-              First Name:
-              <input name="first" onChange={(e) => this.handleChange(e)} type="text"></input>
-            </label>
-            <label>
-              Last Name:
-              <input name="last" onChange={(e) => this.handleChange(e)} type="text"></input>
-            </label>
-          </form>
-        )}
-      </div>
-    )
-  }
+  return (
+    <div>
+      <form onSubmit={handleSubmit}>
+        <label>
+          First Name:
+          <input type='text' value={first} onChange={e => setFirst(e.target.value)}></input>
+        </label>
+        <label>
+          Last Name:
+          <input type='text' value={last} onChange={e => setLast(e.target.value)}></input>
+        </label>
+        <input type='submit' value='submit'></input>
+      </form>
+      {first} {last}
+    </div>
+  )
 }
+
+export default App;
