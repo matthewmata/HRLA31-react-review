@@ -28,14 +28,14 @@ npm start
 * Refactor your functional component into a stateful class component
 
 ## Exercise 5: Using Inputs to Update State
-
+ 
 * Inside of App.jsx, create two inputs
 * Build out some functionality that will allow you to set your first name and last name to the state object
 
-## Exercise 6: Starting our Todo List Component
+## Exercise 6: Starting our List Component
 
 * Inside the components folder, build out a stateful react component called List
-* Import this Todo List component into App
+* Import this List component into App
 * Add a empty string called todo and an array called todos to the state object
 * Build out some functionality that will allow you to add text to the todo string in state
 * Build out some functionality that will allow you to push the todo string into the todos array
